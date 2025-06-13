@@ -11,10 +11,12 @@ namespace ProductApps
         private decimal price;
         private int quantity;
         private decimal totalPayment;
+        private decimal totalCharge;
         private decimal delivery;
         private decimal wrapping;
         private decimal gst;
 
+        
         private decimal Price
         {
             get { return price; }
@@ -32,14 +34,7 @@ namespace ProductApps
             get { return totalPayment; }
             set { totalPayment = value; }
         }
-
-
-        private decimal Delivery
-        {
-            get { return delivery; }
-            set { delivery = value; }
-        }
-
+        
 
         private decimal Wrapping
         {
@@ -53,11 +48,18 @@ namespace ProductApps
             set { gst = value; }
         }
 
+        public decimal TotalCharge
+        {
+            get { return totalCharge; }
+            set { totalCharge = value; }
+        }
+
         //Constructor for Product
         public Product(decimal price, int quantity)
         {
             Price = price;
             Quantity = quantity;
+            
         }
 
         //Calculate the total payment
@@ -65,5 +67,16 @@ namespace ProductApps
         {
             TotalPayment = Price * Quantity;
         }
+
+        public void calTotalCharge()
+            
+        {
+
+            TotalCharge = TotalPayment + 25;
+        }
+        
+        
+       
+        
     }
 }
